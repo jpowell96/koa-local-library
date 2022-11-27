@@ -1,0 +1,32 @@
+{
+  "name": "local-library-koa-backend",
+  "version": "1.0.0",
+  "description": "REST API for mdn local library app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "nodemon",
+    "build": "rimraf ./build && tsc",
+    "start:prod": "npm run build && node build/index.js"
+  },
+  "author": "Jonathan Powell",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/koa": "^2.13.5",
+    "@types/koa-router": "^7.4.4",
+    "@types/node": "^18.11.9",
+    "nodemon": "^2.0.20",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.3"
+  },
+  "dependencies": {
+    "@koa/router": "^12.0.0",
+    "dotenv": "^16.0.3",
+    "jest": "^29.3.1",
+    "koa": "^2.13.4",
+    "koa-body": "^6.0.1",
+    "koa-router": "^12.0.0",
+    "passport": "^0.6.0"
+  }
+}
