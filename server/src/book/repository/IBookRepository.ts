@@ -1,4 +1,4 @@
-import { Book } from './../domain/Book';
+import { Book, BookProps } from '../domain/Book';
 
 export interface ListBooksRequest {
     before?: String,

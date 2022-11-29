@@ -1,7 +1,7 @@
-import { Book } from '../domain/Book';
+import { Book, BookProps } from '../domain/Book';
 import { GetBookByIdRequest, IBookRepository, ListBooksRequest } from './IBookRepository';
 export class InMemoryBookRepository implements IBookRepository {
-     books : Book[] = [
+     bookProps : BookProps[] = [
         { id: 101, title: 'Fight Club', authors: ['Chuck Palahniuk'] },
         { id: 102, title: 'Sharp Objects', authors: ['Gillian Flynn'] },
         { id: 103, title: 'Frankenstein', authors: ['Mary Shelley'] },
@@ -9,14 +9,15 @@ export class InMemoryBookRepository implements IBookRepository {
     ];
 
     listBooks(request: ListBooksRequest) : Promise<Book[]> {
+        const asBooks : Book[] = this.bookProps.map(props => new Book(props));
 
-
-        return Promise.resolve(this.books);
+        return Promise.resolve(asBooks);
     }
 
     getBookById(request: GetBookByIdRequest) : Promise<Book> {
-        const book = this.books.find(book => request.id === book.id);
-        if (book) {
+        const props = this.bookProps.find(book => request.id === book.id);
+        if (props) {
+            const book : Book = new Book(props);
             return Promise.resolve(
                 book
                 );
