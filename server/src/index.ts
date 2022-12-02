@@ -1,5 +1,10 @@
 import koa from "koa";
 import koaBody from "koa-body";
+import * as dotenv from 'dotenv'; // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
+import express from 'express';
+
+dotenv.config();
+
 
 // Create Server Object
 const server = new koa();
